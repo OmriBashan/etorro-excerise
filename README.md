@@ -1,1 +1,1 @@
-# OmriRepoEtoro
+# etoro

@@ -1,0 +1,45 @@
+﻿using System;
+using System.Threading;
+using EtoroEx;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
+using Selenium.WebDriver.WaitExtensions;
+
+
+namespace EtoroEx
+{
+    public class QuerySearch : DriverSetup
+    {
+      
+        private const string SearchBar = "[placeholder='Enter a search term or a topic']";
+
+        public static IWebDriver SearchDriver(string query)
+        {
+
+
+            IWebDriver driver = DecideDriver();
+            driver.Manage().Window.Maximize();
+            IWebElement searchBarElement =
+                driver.FindElement(By.CssSelector(SearchBar));
+
+            if (searchBarElement.Enabled.Equals(false))
+            {
+                throw new ElementNotInteractableException("the element cant be clicked");
+            }
+
+            SearchingQuery(query,driver, searchBarElement, out var searchAction);
+
+            return driver;
+        }
+
+        private static void SearchingQuery(string query,IWebDriver driver, IWebElement searchBarElement, out Actions searchAction)
+        {
+            searchAction = new Actions(driver).MoveToElement(searchBarElement)
+                .Click().SendKeys(query).SendKeys(Keys.Enter);
+            searchAction.Perform();
+        }
+    }
+}
