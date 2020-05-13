@@ -5665,11 +5665,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\omri2\\source\\repos\\EtoroEx\\EtoroTests\\EtoroTests.csproj",
+      "projectUniqueName": "C:\\Users\\omri2\\source\\repos\\OmriLearnGit\\EtoroTests\\EtoroTests.csproj",
       "projectName": "EtoroTests",
-      "projectPath": "C:\\Users\\omri2\\source\\repos\\EtoroEx\\EtoroTests\\EtoroTests.csproj",
+      "projectPath": "C:\\Users\\omri2\\source\\repos\\OmriLearnGit\\EtoroTests\\EtoroTests.csproj",
       "packagesPath": "C:\\Users\\omri2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\omri2\\source\\repos\\EtoroEx\\EtoroTests\\obj\\",
+      "outputPath": "C:\\Users\\omri2\\source\\repos\\OmriLearnGit\\EtoroTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\omri2\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5685,8 +5685,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Users\\omri2\\source\\repos\\EtoroEx\\EtoroEx\\EtoroEx.csproj": {
-              "projectPath": "C:\\Users\\omri2\\source\\repos\\EtoroEx\\EtoroEx\\EtoroEx.csproj"
+            "C:\\Users\\omri2\\source\\repos\\OmriLearnGit\\EtoroEx\\EtoroEx.csproj": {
+              "projectPath": "C:\\Users\\omri2\\source\\repos\\OmriLearnGit\\EtoroEx\\EtoroEx.csproj"
             }
           }
         }

@@ -13,17 +13,12 @@ namespace EtoroEx
 {
     public class QuerySearch : DriverSetup
     {
-      
-        private const string SearchBar = "[placeholder='Enter a search term or a topic']";
-
         public static IWebDriver SearchDriver(string query)
         {
-
-
             IWebDriver driver = DecideDriver();
             driver.Manage().Window.Maximize();
             IWebElement searchBarElement =
-                driver.FindElement(By.CssSelector(SearchBar));
+                driver.FindElement(By.CssSelector(Testbase.SearchBar));
 
             if (searchBarElement.Enabled.Equals(false))
             {

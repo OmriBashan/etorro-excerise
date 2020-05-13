@@ -7,7 +7,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace EtoroEx
 {
-    public class Countries : QuerySearch
+    public class CountriesPick : QuerySearch
     {
         
 
@@ -24,11 +24,11 @@ namespace EtoroEx
             searchAction.Perform();
 
             ///TODO: Fix Click On Districts
-            IWebElement upDistrict = searchBar.FindElement(By.ClassName("hierarchy-picker-node"));
+            IWebElement upDistrict = searchBar.FindElement(By.ClassName(Testbase.HierachyPick));
             Actions clickUpDistrict = new Actions(searchBar).MoveToElement(upDistrict).Click();
             clickUpDistrict.Perform();
             
-            IWebElement districts = searchBar.FindElement(By.ClassName("hierarchy-picker-zoom"));
+            IWebElement districts = searchBar.FindElement(By.ClassName(Testbase.HierachyPickZoom));
             Actions clickDistricts = new Actions(searchBar).MoveToElement(districts).Click();
             clickDistricts.Perform();
 

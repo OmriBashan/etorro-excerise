@@ -21,7 +21,7 @@ namespace EtoroTests
         public static void SanityTest()
         {
            
-            var hirerchy = Countries.CountryResults(query:"query",country: "United Kingdom");
+            var hirerchy = CountriesPick.CountryResults(query:"query",country: "United Kingdom");
 
             //Assert;
         }
