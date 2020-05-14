@@ -9,6 +9,11 @@
     &lt;TestId&gt;NUnit3x::B3F0822C-D1CF-46EF-BF61-9431D5B11EC7::.NETCoreApp,Version=v3.0::EtoroTests.Tests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=72300039_002Dbc81_002D44ca_002D95fc_002D4e1d51eaa972/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SanityTest #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::B3F0822C-D1CF-46EF-BF61-9431D5B11EC7::.NETCoreApp,Version=v3.0::EtoroTests.Tests.SanityTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=af12ead2_002D4e14_002D49cb_002D8dac_002Da13206d4e888/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="SanityTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::B3F0822C-D1CF-46EF-BF61-9431D5B11EC7::.NETCoreApp,Version=v3.0::EtoroTests.Tests.SanityTest&lt;/TestId&gt;&#xD;

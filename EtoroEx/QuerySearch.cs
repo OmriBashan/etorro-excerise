@@ -13,6 +13,10 @@ namespace EtoroEx
 {
     public class QuerySearch : DriverSetup
     {
+        public interface IQuerySearch
+        {
+            IWebDriver Driver();
+        }
         public static IWebDriver SearchDriver(string query)
         {
             IWebDriver driver = DecideDriver();

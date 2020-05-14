@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
@@ -9,34 +11,65 @@ namespace EtoroEx
 {
     public class CountriesPick : QuerySearch
     {
-        
-
-
-        private const string HierarchyList = "hierarchy-select";
-        
         public static IWebElement CountryResults( string query,string country)
         {
+            var searchBar = SearchBarNavigation(query, country, out var selectElement);
+
+            ///TODO:add waiter until updistrict appeard
+
+            var upDistrict = searchCountry(country, searchBar, out var clickUpDistrict);
+
+            ///TODO:add wiater to wait (implicit wait)
+            //List<string> districts = new List<string>();
+            //Thread.Sleep(2000);
+            //IWebElement options = upDistrict.FindElement(By.TagName("span"));
+            //var hu = options.GetAttribute("innerText");
+
+            ////IList<IWebElement> options = upDistrict.FindElements(By.CssSelector(Testbase.DistrictItemRelated));
+            ////foreach (var a2 in options)
+            ////{
+            ////   string lol = a2.GetAttribute("innerText");
+            ////    districts.Add(lol);
+            ////}
+
+            //Thread.Sleep(5000);
+            //IWebElement AllDistricts = searchBar.FindElement(By.ClassName(Testbase.DistrictItemRelated));
+            //string a = upDistrict.GetAttribute("innerText");
+
+            return selectElement;
+        }
+
+        private static IWebDriver SearchBarNavigation(string query, string country, out IWebElement selectElement)
+        {
             var searchBar = SearchDriver(query);
-            IWebElement selectElement = searchBar.FindElement(By.ClassName(HierarchyList));
+            selectElement = searchBar.FindElement(By.ClassName(Testbase.HierarchyList));
             selectElement.Click();
             Actions searchAction = new Actions(searchBar).MoveToElement(selectElement)
-                .Click().SendKeys(country);
+                .Click();
             searchAction.Perform();
+            searchAction.SendKeys(country);
+            searchAction.Perform();
+            searchAction.Click();
+            return searchBar;
+        }
 
-            ///TODO: Fix Click On Districts
+        private static IWebElement searchCountry(string country, IWebDriver searchBar, out Actions clickUpDistrict)
+        {
             IWebElement upDistrict = searchBar.FindElement(By.ClassName(Testbase.HierachyPick));
-            Actions clickUpDistrict = new Actions(searchBar).MoveToElement(upDistrict).Click();
+            string countryNameAttribute = upDistrict.GetAttribute("innerText");
+            CheckCountryExsist(country, countryNameAttribute);
+            clickUpDistrict = new Actions(searchBar).MoveToElement(upDistrict);
+            clickUpDistrict.Click();
             clickUpDistrict.Perform();
-            
-            IWebElement districts = searchBar.FindElement(By.ClassName(Testbase.HierachyPickZoom));
-            Actions clickDistricts = new Actions(searchBar).MoveToElement(districts).Click();
-            clickDistricts.Perform();
+            return upDistrict;
+        }
 
-            /// this area not coming back from the website///
-            //SelectElement oSelectElement =
-            //new SelectElement(searchBar.FindElement(By.ClassName("related-queries-combo-wrapper")));
-            //var a = oSelectElement.Options;
-            return selectElement;
+        private static void CheckCountryExsist(string country, string countryNameAttribute)
+        {
+            if (!countryNameAttribute.Contains(country))
+            {
+                throw new Exception("The County not appeared in the search");
+            }
         }
     }
 }
